@@ -45,7 +45,7 @@ if (process.env.NODE_ENV === "production") {
 // CORS ERROR solution
 app.use(
   cors({
-    origin: ["http://localhost:3000", "asker.com", "http://3.36.74.177"],
+    origin: ["http://localhost:3000", "http://asker.dev"],
     credentials: true, // true로 해주어야 쿠키가 프론트로 전달된다
   })
 );
@@ -59,7 +59,12 @@ app.use(
   session({
     name: "Asker",
     saveUninitialized: false,
-    cookie: { maxAge: 60000 * 60 * 24 },
+    cookie: {
+      maxAge: 60000 * 60 * 24,
+      httpOnly: true,
+      secure: false,
+      domain: process.env.NODE_ENV === "production" && ".asker.dev",
+    },
     resave: false,
     secret: process.env.COOKIE_SECRET,
   })
