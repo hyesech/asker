@@ -6,8 +6,9 @@ import asksSaga from './asks';
 import answerSaga from './answer';
 import answersSaga from './answers';
 import authSaga from './auth';
+import { backUrl } from '../config/config';
 
-axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.baseURL = backUrl;
 axios.defaults.withCredentials = true;
 
 export default function* rootSage() {
