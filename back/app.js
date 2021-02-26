@@ -35,20 +35,28 @@ passportConfig();
 
 // 서버 배포 환경 설정
 if (process.env.NODE_ENV === "production") {
+  // CORS ERROR solution
+  app.use(
+    cors({
+      origin: "http://localhost:3000",
+      credentials: true, // true로 해주어야 쿠키가 프론트로 전달된다
+    })
+  );
+
   app.use(morgan("combined"));
   app.use(hpp());
   app.use(helmet());
 } else {
+  // CORS ERROR solution
+  app.use(
+    cors({
+      origin: "http://localhost:3000",
+      credentials: true, // true로 해주어야 쿠키가 프론트로 전달된다
+    })
+  );
+
   app.use(morgan("dev"));
 }
-
-// CORS ERROR solution
-app.use(
-  cors({
-    origin: ["http://localhost:3000", "http://asker.dev"],
-    credentials: true, // true로 해주어야 쿠키가 프론트로 전달된다
-  })
-);
 
 // Middleware
 app.use(express.json());
