@@ -4,6 +4,10 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const passport = require("passport");
+const morgan = require("morgan");
+const path = require("path");
+const hpp = require("hpp");
+const helmet = require("helmet");
 
 const authRouter = require("./routes/auth");
 const askRouter = require("./routes/asks");
@@ -15,7 +19,17 @@ const { urlencoded } = require("express");
 dotenv.config();
 const passportConfig = require("./passport");
 const answer = require("./models/answer");
+const morgan = require("morgan");
 const app = express();
+
+// 서버 배포 환경 설정
+if (process.env.NODE_ENV === "production") {
+  app.use(morgan("combined"));
+  app.use(hpp());
+  app.use(helmet());
+} else {
+  app.use(morgan("dev"));
+}
 
 // DB 연결
 // alter: true
@@ -33,7 +47,7 @@ passportConfig();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "asker.com"],
     credentials: true, // true로 해주어야 쿠키가 프론트로 전달된다
   })
 );
