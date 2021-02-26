@@ -4,10 +4,8 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const passport = require("passport");
-const morgan = require("morgan");
 const path = require("path");
 const hpp = require("hpp");
-const morgan = require("morgan");
 const helmet = require("helmet");
 
 const authRouter = require("./routes/auth");
@@ -23,14 +21,6 @@ const answer = require("./models/answer");
 const morgan = require("morgan");
 const app = express();
 
-// 서버 배포 환경 설정
-if (process.env.NODE_ENV === "production") {
-  app.use(hpp());
-  app.use(helmet());
-} else {
-  app.use(morgan("dev"));
-}
-
 // DB 연결
 // alter: true
 db.sequelize
@@ -43,8 +33,16 @@ db.sequelize
 // Passport Config
 passportConfig();
 
-// CORS ERROR solution
+// 서버 배포 환경 설정
+if (process.env.NODE_ENV === "production") {
+  app.use(morgan("combined"));
+  app.use(hpp());
+  app.use(helmet());
+} else {
+  app.use(morgan("dev"));
+}
 
+// CORS ERROR solution
 app.use(
   cors({
     origin: ["http://localhost:3000", "asker.com"],
