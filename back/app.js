@@ -7,6 +7,7 @@ const passport = require("passport");
 const morgan = require("morgan");
 const path = require("path");
 const hpp = require("hpp");
+const morgan = require("morgan");
 const helmet = require("helmet");
 
 const authRouter = require("./routes/auth");
@@ -24,7 +25,6 @@ const app = express();
 
 // 서버 배포 환경 설정
 if (process.env.NODE_ENV === "production") {
-  app.use(morgan("combined"));
   app.use(hpp());
   app.use(helmet());
 } else {
