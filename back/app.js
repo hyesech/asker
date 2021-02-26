@@ -77,6 +77,6 @@ app.use("/answers", answerRouter);
 // 에러처리 미들웨어
 // app.use((err, req, res, next) => {});
 
-app.listen(8000, () => {
-  console.log("Listening on PORT 8000...");
+app.listen(80, () => {
+  console.log("Listening on PORT 80...");
 });
