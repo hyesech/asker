@@ -38,11 +38,10 @@ if (process.env.NODE_ENV === "production") {
   // CORS ERROR solution
   app.use(
     cors({
-      origin: "http://localhost:3000",
+      origin: "https://asker.dev",
       credentials: true, // true로 해주어야 쿠키가 프론트로 전달된다
     })
   );
-
   app.use(morgan("combined"));
   app.use(hpp());
   app.use(helmet());
@@ -50,7 +49,7 @@ if (process.env.NODE_ENV === "production") {
   // CORS ERROR solution
   app.use(
     cors({
-      origin: "http://localhost:3000",
+      origin: "http://localhost:3060",
       credentials: true, // true로 해주어야 쿠키가 프론트로 전달된다
     })
   );
