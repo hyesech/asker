@@ -7,18 +7,17 @@ const passport = require("passport");
 const path = require("path");
 const hpp = require("hpp");
 const helmet = require("helmet");
+const morgan = require("morgan");
 
 const authRouter = require("./routes/auth");
 const askRouter = require("./routes/asks");
 const answerRouter = require("./routes/answers");
 
 const db = require("./models");
+const passportConfig = require("./passport");
 const { urlencoded } = require("express");
 
 dotenv.config();
-const passportConfig = require("./passport");
-const answer = require("./models/answer");
-const morgan = require("morgan");
 const app = express();
 
 // DB 연결
