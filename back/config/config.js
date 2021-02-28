@@ -6,8 +6,7 @@ module.exports = {
     username: "root",
     password: process.env.DB_PASSWORD,
     database: "asker",
-    host: "localhost",
-    port: "3306",
+    host: "127.0.0.1",
     dialect: "mysql",
   },
   test: {
