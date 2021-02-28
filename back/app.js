@@ -65,16 +65,17 @@ app.use(
   session({
     name: "Asker",
     saveUninitialized: false,
+    resave: false,
+    secret: process.env.COOKIE_SECRET,
     cookie: {
       maxAge: 60000 * 60 * 24,
       httpOnly: true,
       secure: false,
       domain: process.env.NODE_ENV === "production" && ".asker.dev",
     },
-    resave: false,
-    secret: process.env.COOKIE_SECRET,
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 
