@@ -48,7 +48,7 @@ if (process.env.NODE_ENV === "production") {
   // CORS ERROR solution
   app.use(
     cors({
-      origin: "http://localhost:3060",
+      origin: true,
       credentials: true, // true로 해주어야 쿠키가 프론트로 전달된다
     })
   );
