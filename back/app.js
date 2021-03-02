@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === "production") {
   // CORS ERROR solution
   app.use(
     cors({
-      origin: ["https://asker.dev", "http://3.36.108.176"],
+      origin: "https://asker.dev",
       credentials: true, // true로 해주어야 쿠키가 프론트로 전달된다
     })
   );
