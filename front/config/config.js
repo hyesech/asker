@@ -1,1 +1,1 @@
-export const backUrl = 'https://api.asker.dev';
+export const backUrl = 'https://api.asker.fans';
