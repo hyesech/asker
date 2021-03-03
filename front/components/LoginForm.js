@@ -10,6 +10,7 @@ import {
 } from '../reducers/auth';
 import theme from '../assets/theme';
 import LogoSvg from './Image/LogoSvg';
+import { backUrl } from '../config/config';
 
 const LogoContainer = styled.div`
   display: flex;
@@ -131,11 +132,11 @@ const LoginForm = () => {
   );
 
   const twitterAuth = () => {
-    window.open('http://localhost:8000/auth/twitter', '_self');
+    window.open(`${backUrl}/auth/twitter`, '_self');
   };
 
   const googleAuth = () => {
-    window.open('http://localhost:8000/auth/google', '_self');
+    window.open(`${backUrl}/auth/google`, '_self');
   };
 
   return (
@@ -144,7 +145,7 @@ const LoginForm = () => {
         <LogoSvg width="5rem" />
       </LogoContainer>
       <FormWrapper>
-        <Label htmlFor="email">Email</Label>
+        {/* <Label htmlFor="email">Email</Label>
         <Input
           type="email"
           name="email"
@@ -167,7 +168,7 @@ const LoginForm = () => {
         <Button type="submit">
           <ButtonName>Send</ButtonName>
         </Button>
-      </ButtonWrapper>
+      </ButtonWrapper> */}
       <ButtonWrapper>
         <SubTitle>유저가 아니신가요? 지금 가입하세요!</SubTitle>
         <Button
