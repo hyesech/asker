@@ -80,8 +80,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Router
-app.get("/", (req, res) => res.send("Express!"));
-
 app.use("/auth", authRouter);
 app.use("/asks", askRouter);
 app.use("/answers", answerRouter);
