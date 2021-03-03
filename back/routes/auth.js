@@ -162,7 +162,7 @@ router.get(
   "/twitter/callback",
   passport.authenticate("twitter", { failureRedirect: "/login" }),
   function (req, res) {
-    res.redirect("http://localhost:3000/login");
+    res.redirect("https://asker.fans/login");
   }
 );
 
@@ -180,7 +180,7 @@ router.get(
   "/google/callback",
   passport.authenticate("google", { failureRedirect: "/login" }),
   function (req, res) {
-    res.redirect("http://localhost:3000/login");
+    res.redirect("https://asker.fans/login");
   }
 );
 module.exports = router;
