@@ -144,8 +144,8 @@ const LoginForm = () => {
       <LogoContainer>
         <LogoSvg width="5rem" />
       </LogoContainer>
-      <FormWrapper>
-        {/* <Label htmlFor="email">Email</Label>
+      {/* <FormWrapper>
+        <Label htmlFor="email">Email</Label>
         <Input
           type="email"
           name="email"
