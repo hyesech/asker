@@ -4,6 +4,7 @@ const passport = require("passport");
 const { User } = require("../models");
 const { isNotLoggedIn, isLoggedIn } = require("./middlewares");
 const router = express.Router();
+const config = require("../config/config");
 
 /*
     /auth
@@ -162,7 +163,11 @@ router.get(
   "/twitter/callback",
   passport.authenticate("twitter", { failureRedirect: "/login" }),
   function (req, res) {
-    res.redirect("https://asker.fans/login");
+    // dev mode
+    res.redirect(`${config.development.baseURL}/login`);
+
+    // prod mode
+    //res.redirect(`${config.development.baseURL}/login`);
   }
 );
 
@@ -180,7 +185,11 @@ router.get(
   "/google/callback",
   passport.authenticate("google", { failureRedirect: "/login" }),
   function (req, res) {
-    res.redirect("https://asker.fans/login");
+    // dev mode
+    res.redirect(`${config.development.baseURL}/login`);
+
+    // prod mode
+    //res.redirect(`${config.development.baseURL}/login`);
   }
 );
 

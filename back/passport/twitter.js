@@ -10,7 +10,7 @@ module.exports = () => {
       {
         consumerKey: process.env.TWITTER_CONSUMER_KEY,
         consumerSecret: process.env.TWITTER_CONSUMER_KEY_SECRET,
-        callbackURL: "https://api.asker.fans/auth/twitter/callback",
+        callbackURL: process.env.DEV_TWITTER_CALLBACK_URL,
       },
       async (token, tokenSecret, profile, done) => {
         try {
