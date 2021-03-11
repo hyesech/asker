@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import Router, { useRouter } from 'next/router';
+import Router from 'next/router';
 import styled from 'styled-components';
 import theme from '../assets/theme';
 import HomeSvg from './Image/HomeSvg';
 import BoxSvg from './Image/BoxSvg';
 import NewSvg from './Image/NewSvg';
-import LoginSvg from './Image/LoginSvg';
 
 const Container = styled.header`
   display: flex;
@@ -73,9 +72,7 @@ const Header = () => {
     <Container>
       {me === null ? (
         <NavList>
-          <Label onClick={goToLogin}>
-            <LoginSvg width="1rem" fill={theme.colors.blue} />
-          </Label>
+          <Label onClick={goToLogin}>회원가입</Label>
           <Label onClick={goToLogin}>로그인</Label>
         </NavList>
       ) : (
