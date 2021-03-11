@@ -144,7 +144,7 @@ const LoginForm = () => {
       <LogoContainer>
         <LogoSvg width="5rem" />
       </LogoContainer>
-      {/* <FormWrapper>
+      <FormWrapper>
         <Label htmlFor="email">Email</Label>
         <Input
           type="email"
@@ -168,7 +168,7 @@ const LoginForm = () => {
         <Button type="submit">
           <ButtonName>Send</ButtonName>
         </Button>
-      </ButtonWrapper> */}
+      </ButtonWrapper>
       <ButtonWrapper>
         <SubTitle>유저가 아니신가요? 지금 가입하세요!</SubTitle>
         <Button
